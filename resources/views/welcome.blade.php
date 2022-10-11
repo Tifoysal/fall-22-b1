@@ -21,6 +21,6 @@
         </style>
     </head>
     <body class="antialiased">
-        <h1>.........................Hello Kodeeo</h1>
+        <h1>.........................Hello Kodeeo Limited</h1>
     </body>
 </html>
