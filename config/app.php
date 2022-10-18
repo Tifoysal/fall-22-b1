@@ -15,8 +15,8 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
-
+        //key
+    'name' => env('APP_NAME','Kodeeo.com'),
     /*
     |--------------------------------------------------------------------------
     | Application Environment
@@ -69,7 +69,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Asia/Dhaka',
 
     /*
     |--------------------------------------------------------------------------
