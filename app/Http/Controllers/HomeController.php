@@ -8,12 +8,18 @@ class HomeController extends Controller
 {
     public function showHomePage()
     {
-        return view('welcome');
+
+        return view('backend.pages.dashboard');
     }
 
-    public function showAboutPage()
+    public function about()
     {
-        return "i am about page";
+        return view('backend.pages.about');
+    }
+
+    public function contact()
+    {
+        return view('backend.pages.contact');
     }
 
 }
