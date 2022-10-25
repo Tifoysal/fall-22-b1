@@ -6,20 +6,19 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function showHomePage()
+    public function home()
     {
-
-        return view('backend.pages.dashboard');
+        $name=now();
+        return view('backend.pages.dashboard',compact('name'));
     }
 
-    public function about()
+    public function aboutUs()
     {
         return view('backend.pages.about');
     }
 
-    public function contact()
+    public function contactUs()
     {
-        return view('backend.pages.contact');
+     return view('backend.pages.contact');
     }
-
 }

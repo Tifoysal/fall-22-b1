@@ -1,7 +1,11 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,6 +16,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/',[HomeController::class,'showHomePage']);
-Route::get('/about',[HomeController::class,'about']);
-Route::get('/contact',[HomeController::class,'contact']);
+
+Route::get('/',[HomeController::class,'home']);
+Route::get('/orders',[OrderController::class,'list']);
+Route::get('/users',[UserController::class,'list']);
+Route::get('/categories',[CategoryController::class,'list']);
+Route::get('/category/create',[CategoryController::class,'createForm']);

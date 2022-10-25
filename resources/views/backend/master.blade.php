@@ -82,32 +82,28 @@
 
 
     <!-- Custom styles for this template -->
-    <link href="https://getbootstrap.com/docs/5.2/examples/dashboard/dashboard.css" rel="stylesheet">
+    <link href="{{url('/backend/css/dashboard.css')}}" rel="stylesheet">
 </head>
 <body>
 
 
 
-
-
-@include('backend.partials.header')
-
-
+            @include('backend.fixed.header')
 
 
 <div class="container-fluid">
     <div class="row">
 
 
-        @include('backend.partials.sidebar')
+        @include('backend.fixed.sidebar')
 
 
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
 
 
 
-            @yield('content')
 
+            @yield('content')
 
 
         </main>
