@@ -19,6 +19,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',[HomeController::class,'home']);
 Route::get('/orders',[OrderController::class,'list']);
+
 Route::get('/users',[UserController::class,'list']);
+Route::get('/create/user',[UserController::class,'create'])->name('user.create');
+
+
 Route::get('/categories',[CategoryController::class,'list']);
 Route::get('/category/create',[CategoryController::class,'createForm']);
+
+
+

@@ -3,6 +3,9 @@
 @section('content')
 
     <h1>User List</h1>
+
+    <a href="{{route('user.create')}}" class="btn btn-primary" >Create New User</a>
+
     <table class="table table-striped">
         <thead>
         <tr>

@@ -19,6 +19,11 @@
                     <span data-feather="file" class="align-text-bottom"></span>
                     Users
                 </a>
+            </li>  <li class="nav-item">
+                <a class="nav-link" href="{{route('user.create')}}">
+                    <span data-feather="file" class="align-text-bottom"></span>
+                    New User
+                </a>
             </li>
 
             <li class="nav-item">
