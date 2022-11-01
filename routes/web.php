@@ -24,8 +24,10 @@ Route::get('/users',[UserController::class,'list']);
 Route::get('/create/user',[UserController::class,'create'])->name('user.create');
 
 
-Route::get('/categories',[CategoryController::class,'list']);
+Route::get('/categories',[CategoryController::class,'list'])->name('category.list');
 Route::get('/category/create',[CategoryController::class,'createForm']);
+
+Route::post('/category/store',[CategoryController::class,'store'])->name('category.store');
 
 
 
