@@ -33,6 +33,13 @@
                 </a>
             </li>
 
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('brand.list')}}">
+                    <span data-feather="file" class="align-text-bottom"></span>
+                    Brands
+                </a>
+            </li>
+
         </ul>
 
     </div>

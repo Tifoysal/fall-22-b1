@@ -10,7 +10,9 @@ class CategoryController extends Controller
 
     public function list()
     {
-        return view('backend.pages.category.list');
+        $cats=Category::all();//select * from categories;
+//        dd($cats);
+        return view('backend.pages.category.list',compact('cats'));
     }
 
 

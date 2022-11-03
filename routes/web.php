@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
@@ -29,5 +30,6 @@ Route::get('/category/create',[CategoryController::class,'createForm']);
 
 Route::post('/category/store',[CategoryController::class,'store'])->name('category.store');
 
-
-
+Route::get('/brand/list',[BrandController::class,'list'])->name('brand.list');
+Route::get('/brand/create',[BrandController::class,'showForm'])->name('brand.show.form');
+Route::post('/brand/store',[BrandController::class,'store'])->name('brand.store');
