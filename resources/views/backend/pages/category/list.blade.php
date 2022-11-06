@@ -8,6 +8,8 @@
         <a href="{{url('/category/create')}}" class="btn btn-success">
         Create New Category
     </a>
+
+
     <table class="table table-striped">
         <thead>
         <tr>
@@ -44,6 +46,7 @@
 
         </tbody>
     </table>
+    {{$cats->links()}}
 
 
 @endsection

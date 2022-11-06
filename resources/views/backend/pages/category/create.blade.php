@@ -4,10 +4,17 @@
 @section('content')
 
     <form action="{{route('category.store')}}" method="post">
+
+        @if($errors->any())
+            @foreach($errors->all() as $message)
+                <p class="alert alert-danger">{{$message}}</p>
+            @endforeach
+        @endif
+
         @csrf
         <div class="form-group">
             <label for="name">Enter Category Name</label>
-            <input name="category_name" type="text" class="form-control" id="name" placeholder="Enter Category Name">
+            <input required name="category_name" type="text" class="form-control" id="name" placeholder="Enter Category Name">
         </div>
 
         <div class="form-group">
