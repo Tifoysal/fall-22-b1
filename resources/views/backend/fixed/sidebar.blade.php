@@ -32,6 +32,12 @@
                     Categories
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('product.list')}}">
+                    <span data-feather="file" class="align-text-bottom"></span>
+                    Products
+                </a>
+            </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="{{route('brand.list')}}">
