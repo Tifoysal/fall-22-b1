@@ -3,7 +3,7 @@
 @section('content')
 
 
-    <form action="{{route('product.store')}}" method="post">
+    <form action="{{route('product.store')}}" method="post" enctype="multipart/form-data">
 
         @if($errors->any())
             @foreach($errors->all() as $message)

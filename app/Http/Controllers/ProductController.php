@@ -30,11 +30,23 @@ class ProductController extends Controller
             'product_price' => 'required|numeric',
             'product_stock' => 'required|numeric',
             'category_id' => 'required',
+//            'image'=>'required|mimes:jpeg,jpg,png,gif'
+            'image'=>'required'
         ]);
+
+        $fileName=null;
+        if($request->hasFile('image'))
+        {
+            // generate name
+            $fileName=date('Ymdhmi').'.'.$request->file('image')->getClientOriginalExtension();
+            $request->file('image')->storeAs('/uploads',$fileName);
+        }
+
+
         Product::create([
             'category_id' => $request->category_id,
             'name' => $request->product_name,
-            'image' => $request->image,
+            'image' => $fileName,
             'stock' => $request->product_stock,
             'price' => $request->product_price,
             'status' => $request->status,
