@@ -11,8 +11,12 @@
 
         <!-- Icon -->
         <div class="fadeIn first">
-            <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" />
+            <img src="https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes.png" id="icon" alt="User Icon" />
         </div>
+
+        @if(session()->has('message'))
+            <p class="alert alert-danger">{{session()->get('message')}}</p>
+        @endif
 
         <!-- Login Form -->
         <form action="{{route('do.login')}}" method="post">

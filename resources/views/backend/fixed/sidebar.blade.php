@@ -2,20 +2,20 @@
     <div class="position-sticky pt-3 sidebar-sticky">
         <ul class="nav flex-column">
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{{url('/')}}">
+                <a class="nav-link active" aria-current="page" href="{{route('dashboard')}}">
                     <span data-feather="home" class="align-text-bottom"></span>
                     Dashboard
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{url('/orders')}}">
+                <a class="nav-link" href="{{route('admin.orders')}}">
                     <span data-feather="file" class="align-text-bottom"></span>
                     Orders
                 </a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="{{url('/users')}}">
+                <a class="nav-link" href="{{route('admin.users')}}">
                     <span data-feather="file" class="align-text-bottom"></span>
                     Users
                 </a>
@@ -27,7 +27,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="{{url('/categories')}}">
+                <a class="nav-link" href="{{route('category.list')}}">
                     <span data-feather="file" class="align-text-bottom"></span>
                     Categories
                 </a>

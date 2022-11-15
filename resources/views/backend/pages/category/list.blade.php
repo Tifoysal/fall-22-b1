@@ -5,7 +5,7 @@
     <h1>Category List</h1>
 
 
-        <a href="{{url('/category/create')}}" class="btn btn-success">
+        <a href="{{route('category.create')}}" class="btn btn-success">
         Create New Category
     </a>
 
