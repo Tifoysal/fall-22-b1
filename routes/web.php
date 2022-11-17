@@ -48,4 +48,7 @@ Route::group(['middleware'=>'auth','prefix'=>'admin'],function (){
     Route::get('/product/create',[ProductController::class,'create'])->name('product.create');
     Route::post('/product/store',[ProductController::class,'store'])->name('product.store');
 
+    Route::get('/product/delete/{product_id}',[ProductController::class,'deleteProduct'])->name('admin.product.delete');
+    Route::get('/product/view/{product_id}',[ProductController::class,'viewProduct'])->name('admin.product.view');
+
 });

@@ -4,6 +4,14 @@
 
     <h1>Product List</h1>
 
+    @if(session()->has('message'))
+        <p class="alert alert-success">{{session()->get('message')}}</p>
+      @endif
+
+    @if(session()->has('error'))
+        <p class="alert alert-danger">{{session()->get('error')}}</p>
+    @endif
+
     <a href="{{route('product.create')}}" class="btn btn-primary" >Create New Product</a>
 
     <table class="table table-striped">
@@ -34,9 +42,9 @@
             <td>{{$data->status}}</td>
             <td>{{$data->stock}}</td>
             <td>
-                <a href="" class="btn btn-primary">View</a>
+                <a href="{{route('admin.product.view',$data->id)}}" class="btn btn-primary">View</a>
                 <a href="" class="btn btn-info">Edit</a>
-                <a href="" class="btn btn-danger">Delete</a>
+                <a href="{{route('admin.product.delete',$data->id)}}" class="btn btn-danger">Delete</a>
             </td>
         </tr>
         @endforeach

@@ -57,4 +57,26 @@ class ProductController extends Controller
 
 
     }
+
+    public function deleteProduct(int $product_id)
+    {
+           $test=Product::find($product_id);
+             if($test)
+             {
+                 $test->delete();
+                 return redirect()->back()->with('message','product deleted successfully.');
+             }else{
+                 return redirect()->back()->with('error','product not found.');
+             }
+
+
+//        Product::findOrFail($product_id)->delete();
+//        return redirect()->back()->with('message','product deleted successfully.');
+    }
+
+    public function viewProduct($product_id)
+    {
+      $product=Product::find($product_id);
+      return view('backend.pages.products.view',compact('product'));
+    }
 }
