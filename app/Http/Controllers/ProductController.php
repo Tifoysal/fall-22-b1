@@ -79,4 +79,48 @@ class ProductController extends Controller
       $product=Product::find($product_id);
       return view('backend.pages.products.view',compact('product'));
     }
+
+    public function edit($product_id)
+    {
+        $product=Product::find($product_id);
+        $categories=Category::all();
+        return view('backend.pages.products.edit',compact('categories','product'));
+    }
+
+    public function update(Request $request,$product_id)
+    {
+
+//        dd($request->all());
+//        Product::find($product_id)->update([
+//            'category_id' => $request->category_id,
+//            'stock' => $request->product_stock,
+//            'price' => $request->product_price,
+//            'status' => $request->status,
+//            'description' => $request->description
+//        ]);
+
+        $product=Product::find($product_id);
+        $fileName=$product->image;
+
+        if($request->hasFile('image'))
+        {
+            // generate name
+            $fileName=date('Ymdhmi').'.'.$request->file('image')->getClientOriginalExtension();
+            $request->file('image')->storeAs('/uploads',$fileName);
+        }
+
+
+        $product->update([
+            'name' => $request->product_name,
+            'image' => $fileName,
+            'category_id' => $request->category_id,
+            'stock' => $request->product_stock,
+            'price' => $request->product_price,
+            'status' => $request->status,
+            'description' => $request->description
+        ]);
+
+        return redirect()->route('product.list')->with('message','Update success.');
+
+    }
 }

@@ -50,5 +50,6 @@ Route::group(['middleware'=>'auth','prefix'=>'admin'],function (){
 
     Route::get('/product/delete/{product_id}',[ProductController::class,'deleteProduct'])->name('admin.product.delete');
     Route::get('/product/view/{product_id}',[ProductController::class,'viewProduct'])->name('admin.product.view');
-
+    Route::get('/product/edit/{product_id}',[ProductController::class,'edit'])->name('product.edit');
+    Route::put('/product/update/{product_id}',[ProductController::class,'update'])->name('product.update');
 });

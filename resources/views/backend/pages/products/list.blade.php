@@ -43,7 +43,7 @@
             <td>{{$data->stock}}</td>
             <td>
                 <a href="{{route('admin.product.view',$data->id)}}" class="btn btn-primary">View</a>
-                <a href="" class="btn btn-info">Edit</a>
+                <a href="{{route('product.edit',$data->id)}}" class="btn btn-info">Edit</a>
                 <a href="{{route('admin.product.delete',$data->id)}}" class="btn btn-danger">Delete</a>
             </td>
         </tr>
