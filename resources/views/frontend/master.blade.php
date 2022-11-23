@@ -24,6 +24,7 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="{{url('/frontend/css/style.css')}}" rel="stylesheet">
+    @notifyCss
 </head>
 
 <body>
@@ -31,6 +32,7 @@
 
 
 @include('frontend.fixed.top')
+<x:notify-messages />
 
 
 
@@ -56,6 +58,7 @@
 
 <!-- Template Javascript -->
 <script src="{{url('/frontend/js/main.js')}}"></script>
+@notifyJs
 </body>
 
 </html>
