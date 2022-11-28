@@ -24,8 +24,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [WebHomeController::class, 'webHome'])->name('home');
 Route::post('/register', [WebHomeController::class, 'registration'])->name('registration');
 Route::post('/login', [WebHomeController::class, 'login'])->name('user.login');
+Route::get('/search',[WebHomeController::class,'search'])->name('user.search');
+
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/logout', [WebHomeController::class, 'logout'])->name('user.logout');
+    Route::get('/profile',[WebHomeController::class,'profile'])->name('user.profile');
+    Route::put('/profile/update',[WebHomeController::class,'updateProfile'])->name('profile.update');
+
 });
 
 

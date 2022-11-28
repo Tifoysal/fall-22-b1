@@ -45,8 +45,7 @@
                         <div class="navbar-nav ml-auto py-0">
                             @auth
 
-                               <a class="nav-item nav-link">
-{{--                                   <img src="" alt="image">--}}
+                               <a href="{{route('user.profile')}}" class="nav-item nav-link">
                                    {{auth()->user()->name}}</a>
                                 <a href="{{route('user.logout')}}" class="nav-item nav-link">Logout</a>
                             @else

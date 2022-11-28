@@ -12,7 +12,7 @@ class WebHomeController extends Controller
 {
     public function webHome()
     {
-        $products=Product::where('status','active')->get();
+        $products=Product::all();
         $categories=Category::where('status','active')->get();
 
         // Select * from categories where status='active' OR gender='male' AND age='20';
@@ -56,5 +56,32 @@ class WebHomeController extends Controller
         auth()->logout();
         notify()->success('logout success');
         return redirect()->back();
+    }
+
+    public function profile()
+    {
+        return view('frontend.pages.profile');
+    }
+
+    public function updateProfile(Request $request)
+    {
+       //validation
+
+        $user=User::find(auth()->user()->id);
+        $user->update([
+           'name'=>$request->user_name,
+           'address'=>$request->user_address,
+           'mobile'=>$request->user_mobile,
+        ]);
+
+        notify()->success('User profile updated.');
+        return redirect()->back();
+    }
+
+    public function search(Request $request)
+    {
+        $searchResult=Product::where('name','LIKE','%'.$request->search_key.'%')->get();
+
+      return view('frontend.pages.search',compact('searchResult'));
     }
 }

@@ -43,13 +43,11 @@
             <p class="alert alert-success">{{session()->get('message')}}</p>
           @endif
         <div class="col-lg-6 col-6 text-left">
-            <form action="">
+            <form action="{{route('user.search')}}">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search for products">
+                    <input name="search_key" type="text" class="form-control" placeholder="Search for products">
                     <div class="input-group-append">
-                            <span class="input-group-text bg-transparent text-primary">
-                                <i class="fa fa-search"></i>
-                            </span>
+                            <button type="submit" class="btn btn-success">Search</button>
                     </div>
                 </div>
             </form>
