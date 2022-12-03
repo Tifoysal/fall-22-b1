@@ -38,7 +38,7 @@
             </td>
             <td>{{$data->name}}</td>
             <td>{{$data->price}} BDT</td>
-            <td>{{$data->category->name}}</td>
+            <td>{{$data->categoryRelation->name}}</td>
             <td>{{$data->status}}</td>
             <td>{{$data->stock}}</td>
             <td>

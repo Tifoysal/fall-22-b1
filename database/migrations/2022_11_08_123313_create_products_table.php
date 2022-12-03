@@ -22,6 +22,7 @@ return new class extends Migration
             $table->double('price',10,2)->default(0);
             $table->text('description')->nullable();
             $table->string('status',10)->default('active');
+//            $table->integer('brand_id')
             $table->timestamps();
         });
     }

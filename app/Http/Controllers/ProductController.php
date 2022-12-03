@@ -5,26 +5,27 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
     public function list()
     {
-        $products=Product::paginate(10);
-
+        $products=Product::with('categoryRelation')->paginate(10);
+//    dd($products);
         return view('backend.pages.products.list',compact('products'));
     }
 
     public function create()
     {
-        $categories=Category::all();
+        $categories = Category::all();
 
         return view('backend.pages.products.create',compact('categories'));
     }
 
     public function store(Request $request)
     {
-
+//dd($request->all());
         $request->validate([
             'product_name' => 'required',
             'product_price' => 'required|numeric',
@@ -42,8 +43,10 @@ class ProductController extends Controller
             $request->file('image')->storeAs('/uploads',$fileName);
         }
 
-
+        //query builder-RAW query
+        // eloquent ORM- Model Functions
         Product::create([
+            // table column name=>input field er name
             'category_id' => $request->category_id,
             'name' => $request->product_name,
             'image' => $fileName,
@@ -53,7 +56,10 @@ class ProductController extends Controller
             'description' => $request->description
         ]);
 
-        return redirect()->back()->with('message','Product Created Successful.');
+        //convert
+        // INSERT INTO products (category_id,name) VALUES($request->category_id,$request->product_name)
+        notify()->success('Product Created successfully.');
+        return redirect()->back();
 
 
     }

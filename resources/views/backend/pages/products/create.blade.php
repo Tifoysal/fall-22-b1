@@ -52,6 +52,9 @@
                 </select>
             </div>
 
+
+            input
+
         <div class="form-group">
             <label for="image">Upload Image</label>
             <input name="image" type="file" class="form-control" id="image">
