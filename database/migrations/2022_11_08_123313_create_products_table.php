@@ -16,13 +16,14 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->foreignId('category_id')->constrained('categories');
+            $table->integer('brand_id');
+            $table->integer('user_id');
             $table->string('name',100);
             $table->string('image')->nullable();
             $table->integer('stock')->default(0);
             $table->double('price',10,2)->default(0);
             $table->text('description')->nullable();
             $table->string('status',10)->default('active');
-//            $table->integer('brand_id')
             $table->timestamps();
         });
     }

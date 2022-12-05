@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Order;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -13,7 +14,7 @@ class WebHomeController extends Controller
     public function webHome()
     {
         $products=Product::all();
-        $categories=Category::where('status','active')->get();
+        $categories=Category::all();
 
         // Select * from categories where status='active' OR gender='male' AND age='20';
 
@@ -83,5 +84,39 @@ class WebHomeController extends Controller
         $searchResult=Product::where('name','LIKE','%'.$request->search_key.'%')->get();
 
       return view('frontend.pages.search',compact('searchResult'));
+    }
+
+    public function categoryWiseProducts($category_id)
+    {
+        $products=Product::where('category_id',$category_id)->get();
+       return view('frontend.pages.category_wise_products',compact('products'));
+    }
+
+    public function productView($product_id)
+    {
+        $product=Product::find($product_id);
+        return view('frontend.pages.product_view',compact('product'));
+
+    }
+
+    public function viewBuyForm($product_id)
+    {
+    $product=Product::find($product_id);
+        return view('frontend.pages.buy_now',compact('product'));
+    }
+
+    public function orderCreate(Request $request,$product_id)
+    {
+
+        // create the order
+        Order::create([
+           'user_id'=>auth()->user()->id,
+           'product_id'=>$product_id,
+           'receiver_name'=>$request->first_name,
+           'receiver_email'=>$request->email,
+        ]);
+        notify()->success('Order placed Success.');
+        return redirect()->route('home');
+
     }
 }

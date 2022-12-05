@@ -11,7 +11,7 @@ class ProductController extends Controller
 {
     public function list()
     {
-        $products=Product::with('categoryRelation')->paginate(10);
+        $products=Product::where('user_id',auth()->user()->id)->with('categoryRelation')->paginate(10);
 //    dd($products);
         return view('backend.pages.products.list',compact('products'));
     }
@@ -48,8 +48,10 @@ class ProductController extends Controller
         Product::create([
             // table column name=>input field er name
             'category_id' => $request->category_id,
+            'brand_id' => '1',
             'name' => $request->product_name,
             'image' => $fileName,
+            'user_id' => auth()->user()->id,
             'stock' => $request->product_stock,
             'price' => $request->product_price,
             'status' => $request->status,

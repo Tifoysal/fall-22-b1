@@ -53,7 +53,7 @@
             </div>
 
 
-            input
+
 
         <div class="form-group">
             <label for="image">Upload Image</label>

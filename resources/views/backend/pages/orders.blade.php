@@ -12,24 +12,19 @@
         </tr>
         </thead>
         <tbody>
+
+        @foreach($orders as $order)
         <tr>
             <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
+            <td>{{$order->receiver_name}}</td>
+            <td>{{$order->product_id}}</td>
+            <td>
+                <a class="btn btn-success" href="">Accept</a>
+                <a class="btn btn-danger" href="">Reject</a>
+
+            </td>
         </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-        </tr>
+        @endforeach
         </tbody>
     </table>
 
