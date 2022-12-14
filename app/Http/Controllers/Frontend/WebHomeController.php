@@ -81,6 +81,7 @@ class WebHomeController extends Controller
 
     public function search(Request $request)
     {
+
         $searchResult=Product::where('name','LIKE','%'.$request->search_key.'%')->get();
 
       return view('frontend.pages.search',compact('searchResult'));

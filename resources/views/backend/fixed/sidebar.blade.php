@@ -54,6 +54,13 @@
                 </a>
             </li>
 
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('order.report')}}">
+                        <span data-feather="file" class="align-text-bottom"></span>
+                        Report
+                    </a>
+                </li>
+
         </ul>
 
     </div>

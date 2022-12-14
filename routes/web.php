@@ -32,7 +32,7 @@ Route::get('/product/view/{product_id}',[WebHomeController::class,'productView']
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/buy-form/{product_id}',[WebHomeController::class,'viewBuyForm'])->name('buy.form');
-   Route::post('/order/create/{product_id}',[WebHomeController::class,'orderCreate'])->name('order.create');
+    Route::post('/order/create/{product_id}',[WebHomeController::class,'orderCreate'])->name('order.create');
 
     Route::get('/logout', [WebHomeController::class, 'logout'])->name('user.logout');
     Route::get('/profile',[WebHomeController::class,'profile'])->name('user.profile');
@@ -48,6 +48,7 @@ Route::post('/admin/do-login', [UserController::class, 'doLogin'])->name('do.log
 
 // loging korte hobe and admin o hoite hobe
 Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
+
     Route::group(['middleware' => 'checkAdmin'], function () {
 
         Route::get('/', [HomeController::class, 'home'])->name('dashboard');
@@ -70,5 +71,8 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
         Route::get('/product/view/{product_id}', [ProductController::class, 'viewProduct'])->name('admin.product.view');
         Route::get('/product/edit/{product_id}', [ProductController::class, 'edit'])->name('product.edit');
         Route::put('/product/update/{product_id}', [ProductController::class, 'update'])->name('product.update');
+
+        Route::get('/report',[OrderController::class,'report'])->name('order.report');
+        Route::get('/report/search',[OrderController::class,'reportSearch'])->name('order.report.search');
     });
 });

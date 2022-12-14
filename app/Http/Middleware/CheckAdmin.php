@@ -19,7 +19,7 @@ class CheckAdmin
         if(auth()->user()->role == 'admin' OR auth()->user()->role == 'manager'){
             return $next($request);
         }
-//        notify()->error('Your are not admin');
+        notify()->error('Your are not admin');
         return redirect()->route('home');
     }
 }

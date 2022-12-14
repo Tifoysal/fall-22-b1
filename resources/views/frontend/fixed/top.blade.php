@@ -43,7 +43,7 @@
             <p class="alert alert-success">{{session()->get('message')}}</p>
           @endif
         <div class="col-lg-6 col-6 text-left">
-            <form action="{{route('user.search')}}">
+            <form action="{{route('user.search')}}" >
                 <div class="input-group">
                     <input name="search_key" type="text" class="form-control" placeholder="Search for products">
                     <div class="input-group-append">
