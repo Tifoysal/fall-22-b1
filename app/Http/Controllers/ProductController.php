@@ -11,7 +11,7 @@ class ProductController extends Controller
 {
     public function list()
     {
-        $products=Product::where('user_id',auth()->user()->id)->with('categoryRelation')->paginate(10);
+        $products=Product::where('user_id',auth()->user()->id)->with('categoryRelation')->get();
 //    dd($products);
         return view('backend.pages.products.list',compact('products'));
     }
