@@ -17,3 +17,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/get-products',[ProductController::class,'getProducts']);
 Route::post('/product-create',[ProductController::class,'storeProduct']);
+//get a single product
+Route::get('/product/view/{id}',[ProductController::class,'viewProduct']);
+
+//delete a product
+Route::get('/product/delete/{id}',[ProductController::class,'deleteProduct']);
+
+//update product
+Route::put('/update-product/{id}',[ProductController::class,'update']);
