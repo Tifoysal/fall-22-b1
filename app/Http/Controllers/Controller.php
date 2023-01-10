@@ -10,7 +10,6 @@ use Illuminate\Routing\Controller as BaseController;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
-
     public function responseWithSuccess($data,$message)
     {
         return response()->json([
@@ -19,7 +18,6 @@ class Controller extends BaseController
             'message'=>$message,
         ]);
     }
-
     public function responseWithError($message)
     {
         return response()->json([
