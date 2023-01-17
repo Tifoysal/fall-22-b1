@@ -36,3 +36,4 @@ Route::put('/update-product/{id}',[ProductController::class,'update']);
 
 
 Route::post('/create/user',[UserController::class,'create']);
+Route::post('/update/user',[UserController::class,'update']);

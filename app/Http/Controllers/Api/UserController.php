@@ -46,4 +46,9 @@ class UserController extends Controller
         request()->user()->currentAccessToken()->delete();
         return $this->responseWithSuccess([],'Logout success');
     }
+
+    public function update()
+    {
+        return 'test';
+    }
 }
