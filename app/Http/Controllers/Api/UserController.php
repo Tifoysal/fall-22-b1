@@ -49,6 +49,6 @@ class UserController extends Controller
 
     public function update()
     {
-        return 'hello test';
+        return 'hello test 2';
     }
 }
