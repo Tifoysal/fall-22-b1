@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 //for website
 Route::get('/', [WebHomeController::class, 'webHome'])->name('home');
 Route::post('/register', [WebHomeController::class, 'registration'])->name('registration');

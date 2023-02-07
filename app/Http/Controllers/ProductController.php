@@ -11,7 +11,8 @@ class ProductController extends Controller
 {
     public function list()
     {
-        $products=Product::where('user_id',auth()->user()->id)->with('categoryRelation')->get();
+//        $products=Product::all();//lazy load
+        $products=Product::with('categoryRelation')->get(); //eager load
 //    dd($products);
         return view('backend.pages.products.list',compact('products'));
     }

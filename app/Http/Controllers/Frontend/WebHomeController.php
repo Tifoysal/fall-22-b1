@@ -3,29 +3,30 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UserFormRequest;
 use App\Models\Category;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class WebHomeController extends Controller
 {
     public function webHome()
     {
         $products=Product::all();
-        $categories=Category::all();
 
         // Select * from categories where status='active' OR gender='male' AND age='20';
 
-        return view('frontend.pages.home',compact('products','categories'));
+        return view('frontend.pages.home',compact('products'));
     }
 
-    public function registration(Request $request)
+    public function registration(UserFormRequest $request)
     {
-
         User::create([
-           'name'=>$request->customer_name,
+           'first_name'=>$request->customer_first_name,
+           'last_name'=>$request->customer_last_name,
            'email'=>$request->customer_email,
            'mobile'=>$request->customer_phone,
            'password'=> bcrypt($request->customer_password),
@@ -90,6 +91,7 @@ class WebHomeController extends Controller
     public function categoryWiseProducts($category_id)
     {
         $products=Product::where('category_id',$category_id)->get();
+
        return view('frontend.pages.category_wise_products',compact('products'));
     }
 

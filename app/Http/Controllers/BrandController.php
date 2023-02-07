@@ -8,8 +8,7 @@ use Illuminate\Http\Request;
 class BrandController extends Controller
 {
     public function list(){
-
-        $brand_list=Brand::all();
+        $brand_list=Brand::where('status','active')->get();
         return view('backend.pages.brand.list',compact('brand_list'));
     }
 

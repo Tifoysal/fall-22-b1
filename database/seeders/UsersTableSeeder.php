@@ -15,6 +15,8 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
+        User::factory()->count(100)->create();
+
         //hash
             // algorithm
             // md5, sha-256,
@@ -22,12 +24,14 @@ class UsersTableSeeder extends Seeder
             //decrypt
             //laravel bcrypt
 
-        User::create([
-           'name'=> 'admin',
-           'role'=> 'admin',
-            'email'=>'admin@gmail.com',
-            'password'=>bcrypt('12345'),
-            'mobile'=>'01671099723',
-        ]);
+//                User::create([
+//                    'name'=> 'admin',
+//                    'role'=> 'admin',
+//                    'email'=>"admin@gmail.com",
+//                    'password'=>bcrypt('12345'),
+//                    'mobile'=>'01671099723',
+//                ]);
+//
+
     }
 }

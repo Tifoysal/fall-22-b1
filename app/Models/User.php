@@ -37,4 +37,16 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    //accessor - get
+    public function getFullNameAttribute()
+    {
+        return strtoupper($this->first_name. ' '. $this->last_name);
+    }
+    //accessor - set
+    public function setEmailAttribute($value)
+    {
+        $this->attributes['invoice_number'] = 'INV_'.$value;
+    }
 }
