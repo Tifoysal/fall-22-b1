@@ -45,8 +45,8 @@ class User extends Authenticatable
         return strtoupper($this->first_name. ' '. $this->last_name);
     }
     //accessor - set
-    public function setEmailAttribute($value)
-    {
-        $this->attributes['invoice_number'] = 'INV_'.$value;
-    }
+//    public function setEmailAttribute($value)
+//    {
+//        $this->attributes['invoice_number'] = 'INV_'.$value;
+//    }
 }

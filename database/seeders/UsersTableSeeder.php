@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 class UsersTableSeeder extends Seeder
 {
@@ -15,6 +16,16 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
+        User::create([
+            'first_name' => 'super',
+            'last_name' => 'admin',
+            'role_id'=>1,
+            'mobile'=>fake()->phoneNumber(),
+            'email' => 'admin@gmail.com',
+            'email_verified_at' => now(),
+            'password' => bcrypt('12345'), // password
+            'remember_token' => Str::random(10),
+        ]);
         User::factory()->count(100)->create();
 
         //hash
