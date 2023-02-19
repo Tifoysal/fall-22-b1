@@ -5,8 +5,9 @@
     </button>
     <input class="form-control form-control-dark w-100 rounded-0 border-0" type="text" placeholder="Search" aria-label="Search">
     <div class="navbar-nav">
+
         <div class="nav-item text-nowrap">
-            <a class="nav-link px-3" href="{{route('logout')}}">{{auth()->user()->name}} ( {{auth()->user()->role}} )| Logout</a>
+            <a class="nav-link px-3" href="{{route('logout')}}">{{auth()->user()->full_name}} ( {{auth()->user()->role->name}} )| Logout</a>
         </div>
     </div>
 </header>

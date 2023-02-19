@@ -55,6 +55,13 @@
             </li>
 
                 <li class="nav-item">
+                <a class="nav-link" href="{{route('roles.index')}}">
+                    <span data-feather="file" class="align-text-bottom"></span>
+                    Roles
+                </a>
+            </li>
+
+                <li class="nav-item">
                     <a class="nav-link" href="{{route('order.report')}}">
                         <span data-feather="file" class="align-text-bottom"></span>
                         Report
