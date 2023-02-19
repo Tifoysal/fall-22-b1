@@ -71,10 +71,11 @@ class RoleController extends Controller
      */
     public function show($id)
     {
-        //
+        $role=Role::find($id);
+        return view('backend.pages.roles.show',compact('role'));
     }
 
-    /**
+    /*
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
@@ -105,6 +106,15 @@ class RoleController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $test=Role::find($id);
+        if($test)
+        {
+            $test->delete();
+            return redirect()->back()->with('message','Role deleted successfully.');
+        }
+        else
+        {
+            return redirect()->back()->with('error','Role not found.');
+        }
     }
 }

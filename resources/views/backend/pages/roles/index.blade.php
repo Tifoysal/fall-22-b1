@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <h1>Brand List</h1>
+    <h1>Roles List</h1>
 
     <a href="{{route('roles.create')}}" class="btn btn-primary">Create New Role</a>
 
@@ -27,8 +27,8 @@
                 <td>{{$data->status}}</td>
                 <td>
                     <a href="" class="btn btn-outline-primary">Update</a>
-                    <a href="" class="btn btn-outline-danger">Delete</a>
-                    <a href="" class="btn btn-outline-success">View</a>
+                    <a href="{{route('roles.destroy',$data->id)}}" class="btn btn-outline-danger">Delete</a>
+                    <a href="{{route('roles.show',$data->id)}}" class="btn btn-outline-success">View</a>
                 </td>
             </tr>
         @endforeach
