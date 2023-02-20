@@ -29,6 +29,7 @@ class AppServiceProvider extends ServiceProvider
     {
         // Paginator::useBootstrap();
         $all_categories=[];
+        
         if(Schema::hasTable('categories'))
         {
             $all_categories=Category::all();
