@@ -1,11 +1,11 @@
 @extends('backend.master')
 @section('content')
-<form action="{{route('roles.edit',$role->id)}}" method="post">
-    
+<form action="{{route('roles.update',$role->id)}}" method="post">
+    @method('PUT')
     @csrf
     <div>
         <label for="">Enter Role Name:</label>
-        <input name="role_name" type="text" class="form-control" placeholder="Enter Role Name" value="{{$data->name}}">
+        <input name="role_name" type="text" class="form-control" placeholder="Enter Role Name" value="{{$role->name}}">
     </div>
     <div class="form-group">
             <label for="">Role Status</label>

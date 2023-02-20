@@ -96,15 +96,17 @@ class RoleController extends Controller
      */
     public function update(Request $request, $id)
     {
+      
         $roles=Role::find($id);
         
         $roles->update([
          
             'name'=>$request->role_name,
-            'status'=>$request->status
+            'status'=>$request->role_status
 
         ]);
-        return redirect()->route('roles.update')->with('message','Update Success');
+        notify()->success('Role updated');
+        return redirect()->route('roles.index');
     }
 
     /**
