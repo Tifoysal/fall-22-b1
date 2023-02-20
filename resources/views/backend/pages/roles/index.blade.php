@@ -26,6 +26,7 @@
 
                 <td>{{$data->status}}</td>
                 <td>
+                    <a href="{{route('roles.edit',$data->id)}}" class="btn btn-outline-success">Edit</a>
                     <a href="" class="btn btn-outline-primary">Update</a>
                     <a href="{{route('roles.destroy',$data->id)}}" class="btn btn-outline-danger">Delete</a>
                     <a href="{{route('roles.show',$data->id)}}" class="btn btn-outline-success">View</a>
