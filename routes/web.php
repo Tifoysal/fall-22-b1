@@ -78,8 +78,10 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
         Route::get('/report',[OrderController::class,'report'])->name('order.report');
         Route::get('/report/search',[OrderController::class,'reportSearch'])->name('order.report.search');
 
+
         Route::resource('/roles',RoleController::class);
-        Route::get('/insert-into-permission',[PermissionController::class,'createPermission'])->name('create.permissions');
+        Route::get('/role/assign',[RoleController::class,'assign'])->name('role.assign');
+        Route::get('/permissions',[PermissionController::class,'list'])->name('permission.list');
 
     });
 });

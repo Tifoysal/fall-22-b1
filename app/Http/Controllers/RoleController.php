@@ -133,4 +133,8 @@ class RoleController extends Controller
         }
         return redirect()->back();
     }
+
+    public function assign(){
+        return view('backend.pages.roles.assign');
+    }
 }

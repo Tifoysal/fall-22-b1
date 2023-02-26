@@ -61,6 +61,13 @@
                 </a>
             </li>
 
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('permission.list')}}">
+                    <span data-feather="file" class="align-text-bottom"></span>
+                   Permissions
+                </a>
+            </li>
+
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('order.report')}}">
                         <span data-feather="file" class="align-text-bottom"></span>

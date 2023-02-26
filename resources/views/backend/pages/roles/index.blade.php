@@ -35,6 +35,8 @@
                     </form>
 
                     <a href="{{route('roles.show',$data->id)}}" class="btn btn-outline-success">View</a>
+                    <a href="{{route('role.assign')}}" class="btn btn-outline-primary">Assign</a>
+
                 </td>
             </tr>
         @endforeach
