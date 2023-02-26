@@ -80,8 +80,8 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
 
 
         Route::resource('/roles',RoleController::class);
-        Route::get('/role/assign',[RoleController::class,'assign'])->name('role.assign');
+        Route::get('/role/assign/{id}',[RoleController::class,'showPermissions'])->name('role.assign');
         Route::get('/permissions',[PermissionController::class,'list'])->name('permission.list');
-
+        Route::post('/permissions-assign/{role_id}',[RoleController::class,'assignPermissions'])->name('permissions.assign');
     });
 });

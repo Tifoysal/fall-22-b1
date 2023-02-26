@@ -35,7 +35,7 @@ class createPermissions extends Command
 
             if($route->getPrefix()=='/admin')
             {
-                Permission::create([
+                Permission::updateOrCreate([
                     'name'=>$route->getName()
                 ]);
             }
