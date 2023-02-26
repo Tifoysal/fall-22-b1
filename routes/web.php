@@ -5,6 +5,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Frontend\WebHomeController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
@@ -78,5 +79,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
         Route::get('/report/search',[OrderController::class,'reportSearch'])->name('order.report.search');
 
         Route::resource('/roles',RoleController::class);
+        Route::get('/insert-into-permission',[PermissionController::class,'createPermission'])->name('create.permissions');
+
     });
 });
