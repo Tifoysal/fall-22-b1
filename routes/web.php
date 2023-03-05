@@ -52,13 +52,14 @@ Route::post('/admin/do-login', [UserController::class, 'doLogin'])->name('do.log
 // loging korte hobe and admin o hoite hobe
 Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
 
-    Route::group(['middleware' => 'checkAdmin'], function () {
+//    Route::group(['middleware' => 'checkAdmin'], function () {
 
         Route::get('/', [HomeController::class, 'home'])->name('dashboard');
         Route::get('/logout', [UserController::class, 'logout'])->name('logout');
         Route::get('/orders', [OrderController::class, 'list'])->name('admin.orders');
         Route::get('/users', [UserController::class, 'list'])->name('admin.users');
         Route::get('/create/user', [UserController::class, 'create'])->name('user.create');
+        Route::post('/user/store', [UserController::class, 'store'])->name('user.store');
 
         Route::get('/categories', [CategoryController::class, 'list'])->name('category.list');
         Route::get('/category/create', [CategoryController::class, 'createForm'])->name('category.create');
@@ -83,5 +84,4 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
         Route::get('/role/assign/{id}',[RoleController::class,'showPermissions'])->name('role.assign');
         Route::get('/permissions',[PermissionController::class,'list'])->name('permission.list');
         Route::post('/permissions-assign/{role_id}',[RoleController::class,'assignPermissions'])->name('permissions.assign');
-    });
 });
