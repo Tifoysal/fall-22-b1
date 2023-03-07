@@ -4,11 +4,13 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserFormRequest;
+use App\Mail\OrderEmail;
 use App\Models\Category;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class WebHomeController extends Controller
@@ -118,6 +120,9 @@ class WebHomeController extends Controller
            'receiver_name'=>$request->first_name,
            'receiver_email'=>$request->email,
         ]);
+
+        Mail::to($request->email)->send(new OrderEmail());
+
         notify()->success('Order placed Success.');
         return redirect()->route('home');
 

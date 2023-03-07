@@ -39,6 +39,7 @@
                 </a>
             </li>
             @endif
+
             @if(checkHasPermission(auth()->user()->role_id,'product.list'))
             <li class="nav-item">
                 <a class="nav-link" href="{{route('product.list')}}">
@@ -46,7 +47,8 @@
                     Products
                 </a>
             </li>
-        @endif
+            @endif
+
             @if(checkHasPermission(auth()->user()->role_id,'brand.list'))
             <li class="nav-item">
                 <a class="nav-link" href="{{route('brand.list')}}">
