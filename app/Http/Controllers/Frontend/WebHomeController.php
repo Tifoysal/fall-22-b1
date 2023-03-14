@@ -15,6 +15,14 @@ use Illuminate\Support\Facades\Validator;
 
 class WebHomeController extends Controller
 {
+
+    public function changeLanguage($lang)
+    {
+        session()->put('loc',$lang);
+        return redirect()->back();
+
+    }
+
     public function webHome()
     {
         $products=Product::all();

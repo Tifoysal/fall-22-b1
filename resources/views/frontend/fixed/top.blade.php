@@ -8,11 +8,18 @@
                 <span class="text-muted px-2">|</span>
                 <a class="text-dark" href="">Help</a>
                 <span class="text-muted px-2">|</span>
-                <a class="text-dark" href="">Support</a>
+                <a class="text-dark" href="">{{__('Support')}}</a>
             </div>
         </div>
         <div class="col-lg-6 text-center text-lg-right">
             <div class="d-inline-flex align-items-center">
+
+                <select class="form-control" name="language" id="" onchange="location = this.value;">
+                    <option @if(session()->get('loc')=='en') selected @endif  value="{{route('switch.lang','en')}}">EN</option>
+                    <option  @if(session()->get('loc')=='bn') selected @endif  value="{{route('switch.lang','bn')}}">BN</option>
+                    <option  @if(session()->get('loc')=='ko') selected @endif  value="{{route('switch.lang','ko')}}">KO</option>
+
+                </select>
                 <a class="text-dark px-2" href="">
                     <i class="fab fa-facebook-f"></i>
                 </a>

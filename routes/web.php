@@ -23,8 +23,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 
+Route::group(['middleware'=>'localization'],function (){
+
 //for website
 Route::get('/', [WebHomeController::class, 'webHome'])->name('home');
+Route::get('/switch-lang/{lang}', [WebHomeController::class, 'changeLanguage'])->name('switch.lang');
+
 Route::post('/register', [WebHomeController::class, 'registration'])->name('registration');
 Route::post('/login', [WebHomeController::class, 'login'])->name('user.login');
 
@@ -43,6 +47,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 });
 
+});
 
 //for admin panel
 Route::get('/admin/login', [UserController::class, 'login'])->name('login');
@@ -85,3 +90,4 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
         Route::get('/permissions',[PermissionController::class,'list'])->name('permission.list');
         Route::post('/permissions-assign/{role_id}',[RoleController::class,'assignPermissions'])->name('permissions.assign');
 });
+
