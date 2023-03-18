@@ -33,6 +33,10 @@
             var table = $('.users_list').DataTable({
                 processing: true,
                 serverSide: true,
+                lengthMenu: [
+                    [20, 50, 100, -1],
+                    [20, 50, 100, 'All'],
+                ],
                 ajax: "{{ route('admin.users') }}",
                 columns: [
                     {data: 'id', name: 'id'},
