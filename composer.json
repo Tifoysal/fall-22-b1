@@ -10,7 +10,8 @@
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7",
-        "mckenziearts/laravel-notify": "^2.3"
+        "mckenziearts/laravel-notify": "^2.3",
+        "yajra/laravel-datatables-oracle": "^10.3"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.7",
