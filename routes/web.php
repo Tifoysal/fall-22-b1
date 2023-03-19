@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\Frontend\WebHomeController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
@@ -63,7 +64,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
         Route::get('/logout', [UserController::class, 'logout'])->name('logout');
         Route::get('/orders', [OrderController::class, 'list'])->name('admin.orders');
         Route::get('/users', [UserController::class, 'list'])->name('admin.users');
-//        Route::get('/users/list', [UserController::class, 'listLoad'])->name('admin.users.list');
+        Route::get('/customer/list', [CustomerController::class, 'list'])->name('customer.list');
         Route::get('/create/user', [UserController::class, 'create'])->name('user.create');
         Route::post('/user/store', [UserController::class, 'store'])->name('user.store');
 

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\UserFormRequest;
 use App\Mail\OrderEmail;
 use App\Models\Category;
+use App\Models\Customer;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\User;
@@ -32,17 +33,17 @@ class WebHomeController extends Controller
         return view('frontend.pages.home',compact('products'));
     }
 
-    public function registration(UserFormRequest $request)
+    public function registration(Request $request)
     {
-        User::create([
+
+        Customer::create([
            'first_name'=>$request->customer_first_name,
            'last_name'=>$request->customer_last_name,
            'email'=>$request->customer_email,
            'mobile'=>$request->customer_phone,
            'password'=> bcrypt($request->customer_password),
-            'role'=>'customer'
         ]);
-
+notify()->success('customer registration success');
         return redirect()->back()->with('message','Registration Success.');
     }
 
@@ -54,7 +55,7 @@ class WebHomeController extends Controller
         ]);
 
         $credentials=$request->except('_token');
-        if(auth()->attempt($credentials))
+        if(auth('customer')->attempt($credentials))
         {
       notify()->success('Login success');
             return redirect()->back();

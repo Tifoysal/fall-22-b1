@@ -48,6 +48,14 @@
                 </a>
             </li>
             @endif
+            @if(checkHasPermission(auth()->user()->role_id,'customer.list'))
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('customer.list')}}">
+                        <span data-feather="file" class="align-text-bottom"></span>
+                        Customers
+                    </a>
+                </li>
+            @endif
 
             @if(checkHasPermission(auth()->user()->role_id,'brand.list'))
             <li class="nav-item">

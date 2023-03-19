@@ -75,10 +75,10 @@
                     </div>
                     <div class="navbar-nav ml-auto py-0">
 
-                        @auth
+                        @auth('customer')
 
                             <a href="{{route('user.profile')}}" class="nav-item nav-link">
-                                {{auth()->user()->full_name}}</a>
+                                {{auth('customer')->user()->first_name}}</a>
                             <a href="{{route('user.logout')}}" class="nav-item nav-link">Logout</a>
                         @else
                             <a href="" class="nav-item nav-link" data-toggle="modal" data-target="#login">Login </a>
