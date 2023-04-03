@@ -3,6 +3,7 @@
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\WebHomeController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
@@ -37,6 +38,7 @@ Route::get('/search',[WebHomeController::class,'search'])->name('user.search');
 Route::get('/category-wise-product/{category_id}',[WebHomeController::class,'categoryWiseProducts'])->name('category.wise.products');
 Route::get('/product/view/{product_id}',[WebHomeController::class,'productView'])->name('product.view');
 
+Route::get('add-to-cart/{id}',[CartController::class,'addToCart'])->name('add.to.cart');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/buy-form/{product_id}',[WebHomeController::class,'viewBuyForm'])->name('buy.form');
