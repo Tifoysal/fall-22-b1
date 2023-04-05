@@ -15,7 +15,7 @@ class CartController extends Controller
         if($product)
         {
             $cart=session()->get('cart');
-//            dd($cart);
+
             if(!$cart)
             {
                 //step 1: cart empty
@@ -31,7 +31,6 @@ class CartController extends Controller
                   notify()->success('Product added to cart.');
                   return redirect()->back();
             }
-
 
             //step 2:Cart not empty but product not exist
             //add to cart
@@ -62,7 +61,28 @@ class CartController extends Controller
         notify()->error('No Product Found.');
         return redirect()->back();
 
+    }
 
+    public function viewCart()
+    {
+        return view('frontend.pages.cart');
+    }
 
+    public function clearCart()
+    {
+        session()->forget('cart');
+        notify()->success('Cart Clear success.');
+        return redirect()->back();
+    }
+
+    public function cartItemDelete($id)
+    {
+      $cart=session()->get('cart');
+//      dd($cart);
+      unset($cart[$id]);
+//      dd($cart);
+        session()->put('cart',$cart);
+      notify()->success('Item removed.');
+      return redirect()->back();
     }
 }

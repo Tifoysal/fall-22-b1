@@ -39,6 +39,9 @@ Route::get('/category-wise-product/{category_id}',[WebHomeController::class,'cat
 Route::get('/product/view/{product_id}',[WebHomeController::class,'productView'])->name('product.view');
 
 Route::get('add-to-cart/{id}',[CartController::class,'addToCart'])->name('add.to.cart');
+Route::get('/view-cart',[CartController::class,'viewCart'])->name('cart.view');
+Route::get('/clear-cart',[CartController::class,'clearCart'])->name('cart.clear');
+Route::get('/cart-item/delete/{id}',[CartController::class,'cartItemDelete'])->name('cart.item.delete');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/buy-form/{product_id}',[WebHomeController::class,'viewBuyForm'])->name('buy.form');
