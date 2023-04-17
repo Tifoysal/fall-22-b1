@@ -85,4 +85,10 @@ class CartController extends Controller
       notify()->success('Item removed.');
       return redirect()->back();
     }
+
+    public function checkout()
+    {
+        return view('frontend.pages.buy_now');
+
+    }
 }

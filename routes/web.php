@@ -10,6 +10,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\SslCommerzPaymentController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -45,8 +46,9 @@ Route::get('/cart-item/delete/{id}',[CartController::class,'cartItemDelete'])->n
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/buy-form/{product_id}',[WebHomeController::class,'viewBuyForm'])->name('buy.form');
-    Route::post('/order/create/{product_id}',[WebHomeController::class,'orderCreate'])->name('order.create');
+    Route::post('/order/create',[WebHomeController::class,'orderCreate'])->name('order.create');
 
+    Route::get('/checkout',[CartController::class,'checkout'])->name('cart.checkout');
     Route::get('/logout', [WebHomeController::class, 'logout'])->name('user.logout');
     Route::get('/profile',[WebHomeController::class,'profile'])->name('user.profile');
     Route::put('/profile/update',[WebHomeController::class,'updateProfile'])->name('profile.update');
@@ -97,4 +99,22 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
         Route::get('/permissions',[PermissionController::class,'list'])->name('permission.list');
         Route::post('/permissions-assign/{role_id}',[RoleController::class,'assignPermissions'])->name('permissions.assign');
 });
+
+
+
+// SSLCOMMERZ Start
+//Route::get('/example1', [SslCommerzPaymentController::class, 'exampleEasyCheckout']);
+//
+//
+//Route::get('/example2', [SslCommerzPaymentController::class, 'exampleHostedCheckout'])->name('pay.now');
+
+Route::post('/pay', [SslCommerzPaymentController::class, 'index'])->name('pay');
+Route::post('/pay-via-ajax', [SslCommerzPaymentController::class, 'payViaAjax']);
+
+Route::post('/success', [SslCommerzPaymentController::class, 'success']);
+Route::post('/fail', [SslCommerzPaymentController::class, 'fail']);
+Route::post('/cancel', [SslCommerzPaymentController::class, 'cancel']);
+
+Route::post('/ipn', [SslCommerzPaymentController::class, 'ipn']);
+//SSLCOMMERZ END
 

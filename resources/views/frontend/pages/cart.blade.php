@@ -57,7 +57,7 @@
                     <div class="card">
                         <div class="card-body">
 
-                            <button type="button" class="btn btn-warning btn-block btn-lg">Proceed to Pay</button>
+                            <a href="{{route('cart.checkout')}}" class="btn btn-warning btn-block btn-lg">Proceed to Pay</a>
                         </div>
                     </div>
 
